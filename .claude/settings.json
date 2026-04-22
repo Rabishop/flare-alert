@@ -1,0 +1,51 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(npm run *)",
+      "Bash(npx tsx --eval ' *)",
+      "Bash(npx tsx *)",
+      "Bash(curl -s --max-time 10 -X POST -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"platform.getCurrentValidators\",\"params\":{}}' https://flare-api.flare.network/ext/bc/P)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/reward-scripts/contents/generated-files\")",
+      "Bash(python3 -c \"import sys,json; dirs=[d['name'] for d in json.load\\(sys.stdin\\) if d['type']=='dir']; print\\(sorted\\(dirs\\)[-3:]\\)\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/reward-scripts/refs/heads/main/generated-files/reward-epoch-390/nodes-data.json\")",
+      "Bash(python3 -c \"import sys,json; data=json.load\\(sys.stdin\\); print\\(json.dumps\\(data[0], indent=2\\)\\)\")",
+      "Bash(python3 -c ' *)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npm run dev)",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/reward-scripts/contents/generated-files/reward-epoch-390\")",
+      "Bash(python3 -c \"import sys,json; [print\\(f['name']\\) for f in json.load\\(sys.stdin\\)]\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/reward-scripts/refs/heads/main/generated-files/reward-epoch-390/data.json\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(list\\(d.keys\\(\\)\\) if isinstance\\(d,dict\\) else d[0] if isinstance\\(d,list\\) else d, indent=2\\)\\)\")",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/reward-scripts/contents/generated-files/validator-rewards\")",
+      "Bash(python3 -c \"import sys,json; items=json.load\\(sys.stdin\\); [print\\(i['name'], i['type']\\) for i in items[:20]]\")",
+      "Bash(python3 -c \"import sys,json; items=json.load\\(sys.stdin\\); [print\\(i['name']\\) for i in items if '390' in i['name'] or '388' in i['name'] or '386' in i['name']]\")",
+      "Bash(python3 -c \"import sys,json; items=json.load\\(sys.stdin\\); print\\(items[-1]['name']\\)\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/reward-scripts/refs/heads/main/generated-files/validator-rewards/epochs-386-389.json\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/reward-scripts/refs/heads/main/generated-files/validator-rewards/epochs-382-385.json\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/reward-scripts/refs/heads/main/generated-files/validator-rewards/epochs-126-129.json\")",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/fsp-rewards/contents/flare\")",
+      "Bash(python3 -c \"import sys,json; [print\\(i['name'], i['type']\\) for i in json.load\\(sys.stdin\\)[:10]]\")",
+      "Bash(python3 -c \"import sys,json; d=json.load\\(sys.stdin\\); [print\\(i['name']\\) for i in \\(d if isinstance\\(d,list\\) else []\\)]\")",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/fsp-rewards/contents/flare/389\")",
+      "Bash(python3 -c \"import sys,json; [print\\(i['name']\\) for i in json.load\\(sys.stdin\\)]\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/fsp-rewards/refs/heads/main/flare/390/reward-distribution-data.json\")",
+      "Bash(curl -s -X POST https://flare-api.flare.network/ext/C/rpc -H 'Content-Type: application/json' -d '{ *)",
+      "Bash(python3 -c \"import sys,json; r=json.load\\(sys.stdin\\); print\\(r.get\\('result'\\) or r.get\\('error'\\)\\)\")",
+      "Bash(curl -s -X POST https://flare-api.flare.network/ext/C/rpc -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getCode\",\"params\":[\"0xaD67FE66660Fb8dFE9d6b1b4240d8650e30F6019\",\"latest\"]}')",
+      "Bash(python3 -c \"import sys,json; r=json.load\\(sys.stdin\\); code=r.get\\('result','0x'\\); print\\('Has code:', len\\(code\\)>4, '| len:', len\\(code\\)\\)\")",
+      "Bash(curl -s -X POST https://flare-api.flare.network/ext/C/rpc -H 'Content-Type: application/json' -d '{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"eth_getCode\",\"params\":[\"__TRACKED_VAR__\",\"latest\"]}')",
+      "Bash(curl -s \"https://api.github.com/repos/flare-foundation/flare-smart-contracts-v2/contents/deployment/deploys\")",
+      "Bash(curl -s \"https://raw.githubusercontent.com/flare-foundation/flare-smart-contracts-v2/refs/heads/main/deployment/deploys/flare.json\")",
+      "Bash(python3 -c \"print\\(4034.87 - 4027.98, 'FLR for epochs 386-389'\\)\")",
+      "Bash(node -e \"console.log\\(require.main === module\\)\")",
+      "Bash(npx tsc *)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npx tsx --env-file=.env src/uptime.ts)",
+      "Bash(NODE_TLS_REJECT_UNAUTHORIZED=0 npx tsx --env-file=.env src/flare.ts)"
+    ],
+    "additionalDirectories": [
+      "/Users/xiushu.jin/Work/20260422-flare-alert",
+      "/tmp"
+    ]
+  }
+}

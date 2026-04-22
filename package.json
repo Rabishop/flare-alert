@@ -1,0 +1,21 @@
+{
+  "name": "flare-alert",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "esbuild src/flare.ts --bundle --platform=node --target=node20 --outfile=dist/flare.js && esbuild src/uptime.ts --bundle --platform=node --target=node20 --outfile=dist/uptime.js",
+    "dev": "tsx --env-file=.env src/flare.ts",
+    "dev:uptime": "tsx --env-file=.env src/uptime.ts",
+    "lint": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.145",
+    "@types/node": "^20.0.0",
+    "esbuild": "^0.24.0",
+    "tsx": "^4.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "ethers": "^6.16.0"
+  }
+}
