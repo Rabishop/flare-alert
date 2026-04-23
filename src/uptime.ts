@@ -11,8 +11,8 @@ const GITHUB_API      = process.env.GITHUB_API ?? '';
 const GITHUB_RAW      = process.env.GITHUB_RAW ?? '';
 const SNAPSHOT_PATH   = process.env.UPTIME_SNAPSHOT_PATH ?? '/tmp/uptime-snapshot.json';
 
-// Flare C-Chain block time is approximately 2 seconds
-const BLOCK_TIME_SECONDS = 2;
+// Flare C-Chain block time measured at ~1.2 seconds
+const BLOCK_TIME_SECONDS = 1.2;
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 

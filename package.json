@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "esbuild src/flare.ts --bundle --platform=node --target=node20 --outfile=dist/flare.js && esbuild src/uptime.ts --bundle --platform=node --target=node20 --outfile=dist/uptime.js",
+    "build": "esbuild src/flare.ts --bundle --platform=node --target=node20 --outfile=dist/flare.js && esbuild src/uptime.ts --bundle --platform=node --target=node20 --outfile=dist/uptime.js && esbuild src/provider.ts --bundle --platform=node --target=node20 --outfile=dist/provider.js",
     "dev": "tsx --env-file=.env src/flare.ts",
     "dev:uptime": "tsx --env-file=.env src/uptime.ts",
+    "dev:provider": "tsx --env-file=.env src/provider.ts",
     "lint": "tsc --noEmit"
   },
   "devDependencies": {

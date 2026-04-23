@@ -57,6 +57,54 @@ export async function sendRewardReport(info: ValidatorRewardInfo): Promise<void>
   if (!res.ok) throw new Error(`Slack webhook error: ${res.status} ${await res.text()}`);
 }
 
+export interface ProviderAlertInfo {
+  identityAddress: string;
+  rounds: number;
+  ftsoSubmitted: number;
+  ftsoMissed: number;
+  fdcSubmitted: number;
+  fdcMissed: number;
+}
+
+export async function sendProviderAlert(info: ProviderAlertInfo): Promise<void> {
+  if (!SLACK_WEBHOOK_URL) throw new Error('SLACK_WEBHOOK_URL not configured');
+
+  const shortAddr = `${info.identityAddress.slice(0, 10)}...${info.identityAddress.slice(-6)}`;
+  const addrLink  = `<https://flare-systems-explorer.flare.network/providers/fsp/${info.identityAddress}|${shortAddr}>`;
+  const parts: string[] = [];
+  if (info.ftsoMissed > 0) parts.push(`FTSO ${info.ftsoMissed}`);
+  if (info.fdcMissed  > 0) parts.push(`FDC ${info.fdcMissed}`);
+
+  const message = {
+    attachments: [{
+      color: '#e01e5a',
+      blocks: [
+        {
+          type: 'section',
+          text: { type: 'mrkdwn', text: `:warning: *FLARE PROVIDER — ${parts.join(' / ')} MISSED SUBMISSION(S)*` },
+        },
+        {
+          type: 'section',
+          fields: [
+            { type: 'mrkdwn', text: `*IDENTITY ADDRESS*\n${addrLink}` },
+            { type: 'mrkdwn', text: `*VOTING ROUNDS (5 MIN)*\n${info.rounds}` },
+            { type: 'mrkdwn', text: `*FTSO SUBMITTED*\n${info.ftsoSubmitted} / ${info.rounds * 2}` },
+            { type: 'mrkdwn', text: `*FTSO MISSED*\n${info.ftsoMissed}` },
+            { type: 'mrkdwn', text: `*FDC SUBMITTED*\n${info.fdcSubmitted} / ${info.rounds}` },
+            { type: 'mrkdwn', text: `*FDC MISSED*\n${info.fdcMissed}` },
+          ],
+        },
+      ],
+    }],
+  };
+
+  const res = await fetch(SLACK_WEBHOOK_URL, {
+    method: 'POST', headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(message),
+  });
+  if (!res.ok) throw new Error(`Slack webhook error: ${res.status} ${await res.text()}`);
+}
+
 export async function sendUptimeAlert(info: UptimeAlertInfo): Promise<void> {
   if (!SLACK_WEBHOOK_URL) throw new Error('SLACK_WEBHOOK_URL not configured');
 
